@@ -1,6 +1,8 @@
 :root {
   color-scheme: light;
-  --bg: #f7f7f8;
+  --bg: #000000;
+  --on-bg-text: #ffffff;
+  --on-bg-muted: #a9adb4;
   --surface: #ffffff;
   --border: #d8dadf;
   --text: #1c1e21;
@@ -33,10 +35,11 @@ body {
 .app-header h1 {
   margin: 0 0 4px;
   font-size: 28px;
+  color: var(--on-bg-text);
 }
 
 .subtitle {
-  color: var(--text-muted);
+  color: var(--on-bg-muted);
   margin: 0 0 28px;
   line-height: 1.5;
 }
@@ -86,15 +89,15 @@ body {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   width: 100%;
   padding: 12px 20px;
   font-size: 15px;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--accent-hover);
+  background: #e2e2e2;
 }
 
 .btn-primary:disabled {
@@ -257,6 +260,6 @@ body {
 .app-footer {
   margin-top: 40px;
   text-align: center;
-  color: var(--text-muted);
+  color: var(--on-bg-muted);
   font-size: 12px;
 }
