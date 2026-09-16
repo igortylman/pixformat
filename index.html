@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixFormat — konwerter formatów zdjęć</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>PixFormat</h1>
+        <p class="subtitle">
+          Konwerter formatów zdjęć działający w 100% w Twojej przeglądarce.
+          Żaden plik nigdy nie opuszcza tego urządzenia.
+        </p>
+      </header>
+
+      <main>
+        <div id="dropzone" class="dropzone">
+          <p class="dropzone-text">Przeciągnij i upuść pliki tutaj</p>
+          <p class="dropzone-or">lub</p>
+          <button id="pick-btn" type="button" class="btn btn-secondary">Wybierz pliki</button>
+          <input
+            id="file-input"
+            type="file"
+            accept="image/jpeg,image/png,image/webp,image/gif,image/bmp,image/avif"
+            multiple
+            hidden
+          />
+        </div>
+
+        <p id="batch-warning" class="notice notice-warning" hidden></p>
+        <p id="rejected-notice" class="notice notice-warning" hidden></p>
+
+        <section id="file-list-section" class="file-list-section" hidden>
+          <h2>Pliki (<span id="file-count">0</span>)</h2>
+          <ul id="file-list" class="file-list"></ul>
+        </section>
+
+        <section id="options" class="options" hidden>
+          <div class="option-row">
+            <label for="format-select">Format docelowy</label>
+            <select id="format-select">
+              <option value="jpeg">JPEG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP</option>
+              <option value="bmp">BMP</option>
+            </select>
+          </div>
+          <div class="option-row">
+            <label for="quality-slider">
+              Jakość kompresji: <span id="quality-value">85%</span>
+            </label>
+            <input id="quality-slider" type="range" min="0" max="100" value="85" />
+          </div>
+          <button id="convert-btn" type="button" class="btn btn-primary">Konwertuj</button>
+        </section>
+
+        <section id="progress-section" class="progress-section" hidden>
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <p id="progress-text"></p>
+        </section>
+
+        <section id="summary-section" class="summary-section" hidden>
+          <p id="summary-text"></p>
+          <ul id="summary-errors" class="summary-errors"></ul>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>Brak analityki. Brak przesyłania plików na serwer. Licencja MIT.</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
